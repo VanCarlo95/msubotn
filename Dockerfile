@@ -14,4 +14,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Set the command to run your app (e.g., start Rasa server)
-CMD ["rasa", "run", "--enable-api"]
+CMD ["rasa", "run", "--enable-api", "--cors", "https://msuiitalab.netlify.app"]
+
