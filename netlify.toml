@@ -1,6 +1,5 @@
 [build]
-environment = { PYTHON_VERSION = "3.9.0" }
-image = "netlify/python:3.10"
+image = "netlify/python:3.10"  # This image should already have Python 3.10 pre-installed
 
 [build.environment]
-PYTHON_VERSION = "3.10.12"
+PYTHON_VERSION = "3.10.12"  # Use a single Python version, matching the image
