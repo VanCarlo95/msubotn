@@ -118,6 +118,14 @@ logging.basicConfig(level=logging.WARNING)
 
 app = Flask(__name__)
 
+@app.after_request
+def after_request(response):
+    # Remove CORS headers
+    response.headers.pop('Access-Control-Allow-Origin', None)
+    response.headers.pop('Access-Control-Allow-Methods', None)
+    response.headers.pop('Access-Control-Allow-Headers', None)
+    return response
+
 # Simple CORS configuration
 # CORS(app, 
 #      resources={
