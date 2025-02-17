@@ -1,3 +1,9 @@
 /2-11-2025 - Draco
 /2025 - Draco-20250213T033750Z-001.zip
 /venv
+*.pyc
+*.pyo
+*.git
+*.env
+__pycache__/
+node_modules/
