@@ -13,7 +13,7 @@
 # action_endpoint:
 #  url: "http://localhost:5055/webhook"
 action_endpoint:
-  url: "https://msubot-latest.railway.internal.railway.app/webhook"
+  url: "https://msubot-latest-production.up.railway.app/webhook"
 
 cors:
   - "*"
