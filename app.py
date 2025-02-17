@@ -139,10 +139,16 @@ app = Flask(__name__)
 #          }
 #      })
 
-# CORS configuration for all routes
-CORS(app, resources={r"/*": {"origins": "https://msuiitalab.netlify.app"}})  # Adjust origin as needed
+# Single, clear CORS configuration
+CORS(app, resources={
+    r"/*": {
+        "origins": ["https://msuiitalab.netlify.app"],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "max_age": 3600
+    }
+})
 
-@app.after_request
 def after_request(response):
     # Add CORS headers to every response
     response.headers['Access-Control-Allow-Origin'] = 'https://msuiitalab.netlify.app'
