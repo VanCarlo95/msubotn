@@ -1,5 +1,6 @@
 [build]
-image = "netlify/python:3.10"  # This image should already have Python 3.10 pre-installed
+command = "echo 'Build Successful'"  # No actual build command needed for plain HTML
+publish = "frontend"  # Path to your static HTML files
 
 [build.environment]
-PYTHON_VERSION = "3.10.12"  # Use a single Python version, matching the image
+PYTHON_VERSION = "3.10.12"
