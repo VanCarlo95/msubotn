@@ -118,13 +118,13 @@ logging.basicConfig(level=logging.WARNING)
 
 app = Flask(__name__)
 
-@app.after_request
-def after_request(response):
-    # Remove CORS headers
-    response.headers.pop('Access-Control-Allow-Origin', None)
-    response.headers.pop('Access-Control-Allow-Methods', None)
-    response.headers.pop('Access-Control-Allow-Headers', None)
-    return response
+# @app.after_request
+# def after_request(response):
+#     # Remove CORS headers
+#     response.headers.pop('Access-Control-Allow-Origin', None)
+#     response.headers.pop('Access-Control-Allow-Methods', None)
+#     response.headers.pop('Access-Control-Allow-Headers', None)
+#     return response
 
 # Simple CORS configuration
 # CORS(app, 
@@ -139,15 +139,13 @@ def after_request(response):
 #          }
 #      })
 
-# CORS(app, 
-#      resources={ 
-#          r"/*": {
-#              "origins": ["https://msuiitalab.netlify.app"],  # This should be your frontend URL
-#              "methods": ["GET", "POST", "OPTIONS"],
-#              "allow_headers": ["Content-Type", "Accept"],
-#              "max_age": 3600
-#          }
-#      })
+CORS(app, resources={r"/webhooks/rest/webhook": {"origins": "https://msuiitalab.netlify.app"}})
+
+        # Allow All Origins (NOT recommended for production)
+        # CORS(app)
+
+        # ... your routes and logic ...
+
 
 def get_latest_model():
     models_dir = 'models'
