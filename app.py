@@ -119,12 +119,22 @@ logging.basicConfig(level=logging.WARNING)
 app = Flask(__name__)
 
 # Simple CORS configuration
+# CORS(app, 
+#      resources={
+#          r"/*": {
+#              "origins": ["http://localhost:8000", "http://127.0.0.1:8000", 
+#                         "http://localhost:5500", "http://127.0.0.1:5500",  # Add more origins if needed
+#                         "https://msuiitalab.netlify.app"],  # Add Netlify domain here
+#              "methods": ["GET", "POST", "OPTIONS"],
+#              "allow_headers": ["Content-Type", "Accept"],
+#              "max_age": 3600
+#          }
+#      })
+
 CORS(app, 
-     resources={
+     resources={ 
          r"/*": {
-             "origins": ["http://localhost:8000", "http://127.0.0.1:8000", 
-                        "http://localhost:5500", "http://127.0.0.1:5500",  # Add more origins if needed
-                        "https://msuiitalab.netlify.app"],  # Add Netlify domain here
+             "origins": ["https://msuiitalab.netlify.app"],  # This should be your frontend URL
              "methods": ["GET", "POST", "OPTIONS"],
              "allow_headers": ["Content-Type", "Accept"],
              "max_age": 3600
