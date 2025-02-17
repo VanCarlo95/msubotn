@@ -139,15 +139,15 @@ def after_request(response):
 #          }
 #      })
 
-CORS(app, 
-     resources={ 
-         r"/*": {
-             "origins": ["https://msuiitalab.netlify.app"],  # This should be your frontend URL
-             "methods": ["GET", "POST", "OPTIONS"],
-             "allow_headers": ["Content-Type", "Accept"],
-             "max_age": 3600
-         }
-     })
+# CORS(app, 
+#      resources={ 
+#          r"/*": {
+#              "origins": ["https://msuiitalab.netlify.app"],  # This should be your frontend URL
+#              "methods": ["GET", "POST", "OPTIONS"],
+#              "allow_headers": ["Content-Type", "Accept"],
+#              "max_age": 3600
+#          }
+#      })
 
 def get_latest_model():
     models_dir = 'models'
