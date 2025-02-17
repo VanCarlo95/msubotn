@@ -14,9 +14,8 @@
 #  url: "http://localhost:5055/webhook"
 action_endpoint:
   url: "https://msubot-latest-production.up.railway.app/webhook"
-
-cors:
-  - "*"
+  # cors: "*"
+  cors: "https://msuiitalab.netlify.app"
 # Tracker store which is used to store the conversations.
 # By default the conversations are stored in memory.
 # https://rasa.com/docs/rasa/tracker-stores
