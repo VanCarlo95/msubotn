@@ -1,2 +1,6 @@
 [build]
 environment = { PYTHON_VERSION = "3.9.0" }
+image = "netlify/python:3.10"
+
+[build.environment]
+PYTHON_VERSION = "3.10.12"
