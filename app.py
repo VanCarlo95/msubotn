@@ -139,12 +139,9 @@ app = Flask(__name__)
 #          }
 #      })
 
-CORS(app, resources={r"/webhooks/rest/webhook": {"origins": "https://msuiitalab.netlify.app"}})
+# CORS configuration for all routes
+CORS(app, resources={r"/*": {"origins": "https://msuiitalab.netlify.app"}})  # Adjust origin as needed
 
-        # Allow All Origins (NOT recommended for production)
-        # CORS(app)
-
-        # ... your routes and logic ...
 
 
 def get_latest_model():
