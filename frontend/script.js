@@ -129,7 +129,7 @@ function scrollToBottom() {
 
 function sendMessageToServer(message) {
   // const url = 'http://localhost:5005/chat';
-  const url = "http://msubot-latest-production.up.railway.app";
+  const url = "https://msubot-latest-production.up.railway.app";
   console.log("Sending message to server:", { message });
 
   fetch(url, {
