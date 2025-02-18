@@ -156,6 +156,16 @@ def after_request(response):
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
     return response
 
+@app.route('/webhooks/rest/webhook', methods=['OPTIONS'])
+def preflight():
+    """ Handle CORS preflight requests """
+    response = jsonify({'status': 'Preflight OK'})
+    response.headers['Access-Control-Allow-Origin'] = 'https://msuiitalab.netlify.app'
+    response.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
+    return response, 204  # 204 means "No Content" but successful preflight
+
+
 def get_latest_model():
     models_dir = 'models'
     if not os.path.exists(models_dir):
@@ -190,7 +200,7 @@ except Exception as e:
 def test():
     return jsonify({"status": "ok"})
 
-@app.route('/chat', methods=['POST', 'OPTIONS'])
+@app.route('/webhooks/rest/webhook', methods=['POST', 'OPTIONS'])
 async def chat():
     if request.method == 'OPTIONS':
         response = jsonify({'status': 'OK'})
